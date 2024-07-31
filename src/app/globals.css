@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@font-face {
+  font-family: santoshi;
+  src: url(./Fonts/TTF/Satoshi-Variable.ttf);
+  weight: 400;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f3f4f6;
+  font-family: santoshi;
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+.ais-SearchBox-input {
+  width: 100%;
+  padding: 0.75rem;
+  padding-left: 2.5rem;
+  font-size: 0.875rem;
+  color: #1f2937;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background-color: #f9fafb;
+}
+
+.ais-SearchBox-input {
+  border-color: #d1d5db;
+  outline: none;
+  box-shadow: none;
+}
+
+.ais-SearchBox-submit {
+  display: none;
+}
+.ais-SearchBox-reset {
+  display: none;
+}
