@@ -40,26 +40,4 @@ body {
     text-wrap: balance;
   }
 }
-.ais-SearchBox-input {
-  width: 100%;
-  padding: 0.75rem;
-  padding-left: 2.5rem;
-  font-size: 0.875rem;
-  color: #1f2937;
-  border: 1px solid #e5e7eb;
-  border-radius: 0.5rem;
-  background-color: #f9fafb;
-}
 
-.ais-SearchBox-input {
-  border-color: #d1d5db;
-  outline: none;
-  box-shadow: none;
-}
-
-.ais-SearchBox-submit {
-  display: none;
-}
-.ais-SearchBox-reset {
-  display: none;
-}
