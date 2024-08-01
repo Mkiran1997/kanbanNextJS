@@ -5,6 +5,7 @@ import Breadcrumb from "../Common/breadcrumb";
 import AddTaskModal from "../Modal/AddTaskModal";
 import { Select } from "../Common/Select";
 import { GET, POST } from "@/services/method";
+import { getColumns, getTask } from "@/app/actions/route";
 import useDebounce from "@/hooks/useDebounce";
 import SearchIcon from "@/icons/HomeIcon";
 import AddIcon from "@/icons/AddIcon";
@@ -49,7 +50,7 @@ const Dashboard = () => {
   };
   const fetchColumn = async () => {
     try {
-      const data = await GET("/boards/1/columns");
+      const data = await getColumns();
       setColumnData(data.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -124,14 +125,14 @@ const Dashboard = () => {
 
   const handleTask = async () => {
     setSearchParam("");
+    const filterDetails = {
+      categories: selected.category ? [selected.category] : [],
+      users: selected.user ? [selected.user] : [],
+      startDate: dateRange.startDate,
+      endDate: dateRange.endDate,
+    };
     try {
-      const taskDetails = await POST("/tasks", {
-        categories: selected.category ? [selected.category] : [],
-        users: selected.user ? [selected.user] : [],
-        startDate: dateRange.startDate,
-        endDate: dateRange.endDate,
-      });
-
+      const taskDetails = await getTask(filterDetails);
       setNewFilterData(processData(taskDetails));
     } catch (error) {
       console.error("Error fetching data:", error);

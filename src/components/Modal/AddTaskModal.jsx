@@ -1,5 +1,6 @@
 import CloseIcon from "@/icons/CloseIcon";
-import { GET, POST } from "@/services/method";
+import { GET } from "@/services/method";
+import { createTask } from "@/app/actions/route";
 import React, { useState, useEffect, useMemo } from "react";
 import { z } from "zod";
 
@@ -31,14 +32,7 @@ const AddTaskModal = ({ onClose, handleTask }) => {
       });
     }
     try {
-      const newObject = {
-        ...formData,
-      };
-      delete newObject["column"];
-      await POST(
-        `/boards/1/columns/${Number(formData.column)}/tasks`,
-        newObject
-      );
+      await createTask(formData);
       if (result.success) {
         onClose();
         handleTask();
