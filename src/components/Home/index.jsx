@@ -184,7 +184,7 @@ const Dashboard = () => {
               className="bg-indigo-500 text-white font-bold py-2 px-3 rounded-lg flex gap-2 items-center"
             >
               <AddIcon />
-              Create a new procedure
+              Create a new Task
             </button>
           </div>
         </div>
